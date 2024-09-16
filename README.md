@@ -5,4 +5,4 @@ Ez a gyűjtemény a Zielinski Szilárd Építőmérnöki Szakkollégium 2024-25-
 A részletes ütemterv mellett a kurzus előrehaladtával az előkészített munkafüzetek, órán átvett anyagok és az esetleges önálló feladatok kiírásai lesznek itt megtalálhatók.
 
 >[!WARNING]
->Az oktatás során internet elérés nem lesz biztosítva, így kérjük a részvevőket, hogy a szükséges állományokat a megbeszéltek szerint minden kurzus alkalom előtt töltsék le.
+>Az oktatás során internet elérés nem lesz biztosítva, így kérjük a résztvevőket, hogy a szükséges állományokat a megbeszéltek szerint minden kurzus alkalom előtt töltsék le.
