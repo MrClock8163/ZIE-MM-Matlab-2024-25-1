@@ -10,7 +10,7 @@ classdef MeshObject
         function obj = MeshObject(verts, faces)
             % MESHOBJECT Initialize new object from a list of vertices and triangular faces.
             %   
-            %   mesh = MeshObject(verts, faces)
+            %   mesh = MESHOBJECT(verts, faces)
             %
             %   Args:
             %   - verts (1,:) MeshVector: List of vertices
@@ -67,6 +67,24 @@ classdef MeshObject
                 v = v + v1.dot(v2.cross(v3)) / 6;
             end
         end
+        function transform(self,mat)
+            % TRANSFORM Apply 3D transformation to model.
+            %
+            %   MESHOBJECT.TRANSFORM(self,mat)
+            %
+            %   Args:
+            %   - self (1,1) MeshObject: Object instance to operate on
+            %   - mat (1,1) MeshTransform: Transformation to apply
+            %
+            %   See also MESHOBJECT, MESHTRANSFORM, MESHVECTOR.TRANSFORM
+            arguments
+                self (1,1) MeshObject
+                mat (1,1) MeshTransform
+            end
+            for v = self.verts
+                v.transform(mat);
+            end
+        end
     end
     
     methods (Static)
@@ -119,7 +137,8 @@ classdef MeshObject
             end
             obj = MeshObject(verts, faces);
         end
-        
+    end
+    methods (Static, Access = private) 
         function success = jumpToBlock(ptr, id)
             % JUMPTOBLOCK In an open ASCII OBJ file jump to the first line with the
             %   given type code.
