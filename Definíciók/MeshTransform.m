@@ -110,7 +110,7 @@ classdef MeshTransform < handle
             arguments
                 self (1,1) MeshTransform
             end
-            t = -self;
+            t = self.inv();
         end
     end
     
