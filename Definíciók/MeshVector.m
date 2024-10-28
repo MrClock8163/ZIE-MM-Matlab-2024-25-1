@@ -1,4 +1,4 @@
-classdef MeshVector
+classdef MeshVector < handle
     % MESHVECTOR 3D vector for use in meshes.
     properties (SetAccess = private)
         x (1,1) double = 0 % X coordinate component
@@ -7,7 +7,7 @@ classdef MeshVector
     end
     
     properties (Dependent)
-        coords (1,3) double % Read-only access to coordinates as array
+        coords (1,3) double % Calculated property access to coordinates as array
     end
     
     methods
@@ -31,8 +31,18 @@ classdef MeshVector
             obj.z = components(3);
         end
         function vec = get.coords(self)
-            % GET.COORDS Getter method of the read-only coords property.
+            % GET.COORDS Getter method of the coords property.
             vec = [self.x,self.y,self.z];
+        end
+        function set.coords(self, components)
+            % SET.COORDS Setter method of the coords property.
+            arguments
+                self (1,1) MeshVector
+                components (1,3) double
+            end
+            self.x = components(1);
+            self.y = components(2);
+            self.z = components(3);
         end
         function vec = plus(vec1,vec2)
             % PLUS Sum of two MeshVectors.
@@ -175,6 +185,23 @@ classdef MeshVector
             %
             %   See also MESHVECTOR
             prod = sqrt(sum(self.coords.^2));
+        end
+        function transform(self,mat)
+            % TRANSFORM Apply 3D transformation to vector in place.
+            %   
+            %   MESHVECTOR.TRANSFORM(self,mat)
+            %
+            %   Args:
+            %   - self (1,1) MeshVector: Vector instance to operate on
+            %   - mat (1,1) MeshTransform: Transformation to apply
+            %
+            %   See also MESHVECTOR, MESHTRANSFORM, MESHOBJECT.TRANSFORM
+            arguments
+                self (1,1) MeshVector
+                mat (1,1) MeshTransform
+            end
+            result = mat.m * [self.coords, 1]';
+            self.coords = result(1:3);
         end
     end
 end
