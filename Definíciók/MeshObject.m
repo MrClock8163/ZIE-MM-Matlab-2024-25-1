@@ -17,7 +17,7 @@ classdef MeshObject
             %   - faces (1,:) MeshTriangle: List of faces
             %
             %   Returns:
-            %   - mesh (1,1) MeshObject: Mesh initialized with given inptuts
+            %   - mesh (1,1) MeshObject: Mesh initialized with given inputs
             %
             %   See also MESHVECTOR, MESHTRIANGLE
             arguments
@@ -30,7 +30,10 @@ classdef MeshObject
         function a = area(self)
             % AREA Calculate mesh surface area by the sum of triangle areas.
             %
-            %   a = MESHOBJECT.AREA()
+            %   a = MESHOBJECT.AREA(self)
+            %
+            %   Args:
+            %   - self (1,1) MeshObject: Object instance to operate on
             %
             %   Returns:
             %   - a (1,1) double: Surface area of MESHOBJECT
@@ -47,7 +50,10 @@ classdef MeshObject
             %   constructed from the individual triangle faces and the
             %   origin point.
             %
-            %   a = MESHOBJECT.VOLUME()
+            %   a = MESHOBJECT.VOLUME(self)
+            %
+            %   Args:
+            %   - self (1,1) MeshObject: Object instance to operate on
             %
             %   Returns:
             %   - a (1,1) double: Volume of MESHOBJECT
