@@ -1,7 +1,7 @@
 classdef MeshTriangle
     % MESHTRIANGLE Triangular face constructed from 3 vertices.
     properties (SetAccess = private)
-        verts (1,3) MeshVector = MeshVector.empty % Triangle vertices
+        verts (1,3) MeshVector = MeshVector([0,0,0]) % Triangle vertices
     end
     
     methods
