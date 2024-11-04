@@ -1,5 +1,5 @@
 classdef HandleClass < handle
-    %HANDLECLASS Example value class.
+    %HANDLECLASS Example handle class.
     properties
         prop (1,1) double % Internal property
     end
